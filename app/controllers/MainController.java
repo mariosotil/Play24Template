@@ -15,7 +15,7 @@ public class MainController extends Controller {
 
         try {
             String version = configuration.getString("application.version");
-            result = ok(String.format("Andium API. Engine's version:%s", version));
+            result = ok(String.format("Hello World!  Version:%s", version));
         } catch (Exception e) {
             result = internalServerError(e.getMessage());
         }
