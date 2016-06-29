@@ -1,8 +1,8 @@
 import com.typesafe.sbt.packager.docker.{Cmd, ExecCmd}
 
 val projectMaintainer = "John Smith <john.smith@company.cxx>"
-val projectEntrypoint = "project"
-val projectName = "Project"
+val projectName = "Play24Template"
+val projectEntryPoint = projectName.toLowerCase
 
 name := """%s""".format(projectName)
 
@@ -28,9 +28,9 @@ dockerCommands := Seq(
   Cmd("ADD", "stage /"),
   Cmd("WORKDIR", "/opt/docker"),
   Cmd("RUN", "[\"chown\", \"-R\", \"daemon\", \".\"]"),
-  Cmd("RUN", "[\"chmod\", \"+x\", \"bin/%s\"]".format(projectEntrypoint)),
+  Cmd("RUN", "[\"chmod\", \"+x\", \"bin/%s\"]".format(projectEntryPoint)),
   Cmd("USER", "daemon"),
-  Cmd("ENTRYPOINT", "[\"bin/%s\", \"-J-Xms128m\", \"-J-Xmx512m\", \"-J-server\"]".format(projectEntrypoint)),
+  Cmd("ENTRYPOINT", "[\"bin/%s\", \"-J-Xms128m\", \"-J-Xmx512m\", \"-J-server\"]".format(projectEntryPoint)),
   ExecCmd("CMD")
 )
 
