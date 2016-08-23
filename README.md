@@ -6,3 +6,4 @@
     `$ create-a-project-on-folder.sh ~/projects/MyProject`
     
 - "MyProject" will be the name of your project
+
